@@ -5,7 +5,9 @@
 
 ## Install
 
-Install the [selenium chrome extension](https://chrome.google.com/webstore/detail/selenium-ide/mooikfkahbdckldjjndioackbalphokd).
+Install the [selenium chrome driver](https://chromedriver.storage.googleapis.com/index.html?path=2.42/).
+
+Save it in `~/Downloads`.
 
 ```
 pip install -r requirements.txt
