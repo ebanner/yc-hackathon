@@ -60,6 +60,7 @@ if __name__ == '__main__':
     """
     rows = cursor.execute(query).fetchall()
     df = pd.DataFrame(rows, columns=['date', 'url', 'title', 'visit_count'])
-    for idx, row in df.head().iterrows():
-        pprint.pprint(dict(row))
-        print()
+    df.to_json('edward.json')
+    # for idx, row in df.head().iterrows():
+    #     pprint.pprint(dict(row))
+    #     print()
