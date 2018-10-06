@@ -10,11 +10,15 @@ from selenium.webdriver.chrome.options import Options
 import pprint
 
 
+HOME = os.environ['HOME']
+print(HOME)
+
+
 def flush_history():
     chrome_options = Options()
-    chrome_options.add_argument("--user-data-dir=/Users/edwardbanner/Library/Application Support/Google/Chrome")
+    chrome_options.add_argument(f'--user-data-dir={HOME}/Library/Application Support/Google/Chrome')
     chrome_options.add_argument('--headless')
-    driver = webdriver.Chrome('/Users/edwardbanner/Downloads/chromedriver', chrome_options=chrome_options)
+    driver = webdriver.Chrome(f'{HOME}/Downloads/chromedriver', chrome_options=chrome_options)
     driver.get('chrome://history');
     driver.quit()
 
@@ -28,13 +32,13 @@ if __name__ == '__main__':
     #
     # Copy history file to home directory.
     #
-    history_path = '/Users/edwardbanner/Library/Application\ Support/Google/Chrome/Default/History'
-    os.system(f'cp {history_path} /Users/edwardbanner/History')
+    history_path = f'{HOME}/Library/Application\ Support/Google/Chrome/Default/History'
+    os.system(f'cp {history_path} {HOME}/History')
 
     #
     # Get connection to history db.
     #
-    history_path = '/Users/edwardbanner/History'
+    history_path = f'{HOME}/History'
     c = sqlite3.connect(history_path)
     cursor = c.cursor()
 
